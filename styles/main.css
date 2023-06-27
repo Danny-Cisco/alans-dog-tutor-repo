@@ -14,19 +14,17 @@ canvas {
     pointer-events: none;
 }
 
-.content {
+.content a {
+    background: white;
+    padding: 1em;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    font-weight: bold;
+    border-radius: .3em;
+    width: 30%;
+    display: inline-block;
+    transition: background-color .3s;
     text-align: center;
-
-    a {
-        background: white;
-        padding: 1em;
-        text-decoration: none;
-        font-family: 'Nunito', sans-serif;
-        color: black;
-        font-weight: bold;
-        border-radius: .3em;
-        width: 30%;
-        display: inline-block;
-        transition: background-color .3s;
-    }
+    justify-self: center;
 }
