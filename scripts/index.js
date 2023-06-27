@@ -13,3 +13,4 @@ const r = new rive.Rive({
     },
     
 });
+

@@ -9,7 +9,7 @@ body {
 }
 
 canvas {
-   
+    cursor: crosshair;
 }
 
 .content a {
