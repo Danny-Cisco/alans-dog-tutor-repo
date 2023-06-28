@@ -1,6 +1,6 @@
 body {
     height: 100vh;
-    background-color: rgb(0,0,0);
+    background-color: rgb(0, 0, 0);
     display: grid;
     justify-content: center;
     transition: background-color 1s;
@@ -18,30 +18,48 @@ canvas {
     font-family: 'Nunito', sans-serif;
     color: black;
     font-weight: bold;
-    border-radius: .3em; /* "em" is a percentage of font size, measured in pixels */
+    border-radius: .3em;
     width: 100%;
-    display: inline-block;
+   
     transition: background-color .3s;
     text-align: center;
     font-size: 25px;
-    border: none; /* Removes default input button styling */
-    cursor: pointer; /* Changes cursor to a hand when hovering over the button */
+    border: none;
+    cursor: pointer;
+    max-width: 600px;
 }
 
-.content input[type="submit"], #prompt-input {
+.content input[type="submit"],
+#prompt-input {
     box-sizing: border-box;
+}
+
+#response {
+    box-sizing: border-box;
+    background: white;
+    padding: 1em;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    font-weight: regular;
+    border-radius: .3em;
+    width: 100%;
+    
+    transition: background-color .3s;
+    text-align: left;
+    font-size: 20px;
+    max-width: 600px;
 }
 
 .content {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    
+    align-items: center; /* Added this line */
     padding: 20px;
     background-color: #31133d;
     width: 95vw;
     max-width: 960px;
 }
-
 
 #prompt-input {
     background: white;
@@ -54,6 +72,6 @@ canvas {
     display: inline-block;
     transition: background-color .3s;
     text-align: left;
-    justify-self: center;
     font-size: 20px;
+    max-width: 600px;
 }
