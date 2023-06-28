@@ -1,6 +1,6 @@
 let myPrompt = "Write a short story about a dog on an adventure.";
 
-fetch('/api/openai', {
+fetch('api/openai', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -9,6 +9,8 @@ fetch('/api/openai', {
 })
 .then(response => response.json())
 .then(data => console.log(data.text))
-.catch((error) => {
-    console.error('Error:', error);
-});
+catch (error) {
+  console.error('OpenAI API call failed:', error);
+  res.status(500).json({ error: error.toString() });
+}
+
