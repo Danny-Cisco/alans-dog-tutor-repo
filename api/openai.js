@@ -22,24 +22,19 @@ module.exports = async (req, res) => {
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-  defaultHeaders: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
-  },
-});
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+
 const openai = new OpenAIApi(configuration);
 
 async function getCompletion() {
   try {
-    const response = await openai.createCompletion("text-davinci-003", {
-      prompt: "What are the colours of the rainbow?",
-      temperature: 0.7,
-      max_tokens: 256,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0,
-    });
+    const response = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: "Say this is a test",
+        max_tokens: 7,
+        temperature: 0,
+      });
 
     console.log(response.choices[0].text);
   } catch (error) {
