@@ -13,6 +13,8 @@ module.exports = async (req, res) => {
 
     res.status(200).json({ text: result.data.choices[0].text });
   } catch (error) {
+    console.error(error); // This will log the error details.
     res.status(500).json({ error: error.toString() });
   }
 };
+
