@@ -23,6 +23,10 @@ const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
+  defaultHeaders: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+  },
 });
 const openai = new OpenAIApi(configuration);
 
@@ -44,3 +48,4 @@ async function getCompletion() {
 }
 
 getCompletion();
+
