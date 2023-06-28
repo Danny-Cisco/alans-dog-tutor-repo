@@ -17,7 +17,11 @@ const r = new rive.Rive({
 document.getElementById('myForm').addEventListener('submit', function(event) {
     event.preventDefault();
     console.log('Form submitted!');
+    woof.currentTime = 0;
+    woof.play();
 });
+
+
 
 
 
