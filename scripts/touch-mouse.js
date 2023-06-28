@@ -33,3 +33,29 @@ function init() {
 
 // Call the init function to start listening for touch events
 init();
+
+
+canvas.addEventListener('touchstart', function(event) {
+    var originalEvent = event.changedTouches[0];
+
+    // Start a timer
+    setTimeout(function() {
+        // After a delay, create and dispatch a new touchmove event
+        var touchMoveEvent = new TouchEvent('touchmove', {
+            changedTouches: [new Touch({
+                identifier: originalEvent.identifier,
+                target: originalEvent.target,
+                // Adjust the touch coordinates as necessary
+                // This is a simple example that moves the touch point by 10 pixels
+                clientX: originalEvent.clientX + 10,
+                clientY: originalEvent.clientY + 10,
+                radiusX: originalEvent.radiusX,
+                radiusY: originalEvent.radiusY,
+                rotationAngle: originalEvent.rotationAngle,
+                force: originalEvent.force,
+            })],
+        });
+        
+        originalEvent.target.dispatchEvent(touchMoveEvent);
+    }, 100); // Adjust the delay as necessary
+});
