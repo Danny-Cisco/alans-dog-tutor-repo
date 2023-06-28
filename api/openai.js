@@ -22,25 +22,24 @@ module.exports = async (req, res) => {
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-  });
-
+  apiKey: process.env.OPENAI_API_KEY,
+});
 const openai = new OpenAIApi(configuration);
 
-async function getCompletion() {
+module.exports = async (req, res) => {
   try {
+    const { prompt } = req.body; // Extract prompt from the request body
+
     const response = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: "Say this is a test",
-        max_tokens: 7,
-        temperature: 0,
-      });
+      model: "text-davinci-003",
+      prompt: prompt,
+      max_tokens: 7,
+      temperature: 0,
+    });
 
-    console.log(response.choices[0].text);
+    res.status(200).json({ text: response.choices[0].text });
   } catch (error) {
-    console.error('Error:', error);
+    res.status(500).json({ error: error.toString() });
   }
-}
-
-getCompletion();
+};
 
