@@ -28,6 +28,7 @@ const openai = new OpenAIApi(configuration);
 
 export default async (req, res) => {
     try {
+        console.log('Request body:', req.body);
         const { prompt } = req.body;
 
         const response = await openai.createCompletion({
@@ -36,6 +37,9 @@ export default async (req, res) => {
             max_tokens: 7,
             temperature: 0,
         });
+
+        
+
         console.log('Response:', response);
         console.log('Choices:', response.choices);
 
