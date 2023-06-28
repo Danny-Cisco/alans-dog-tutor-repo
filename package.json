@@ -1,0 +1,23 @@
+{
+  "name": "alans-dog-tutor-repo",
+  "version": "1.0.0",
+  "description": "This is a prototype of an AI tutor for kids",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danny-Cisco/alans-dog-tutor-repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Danny-Cisco/alans-dog-tutor-repo/issues"
+  },
+  "homepage": "https://github.com/Danny-Cisco/alans-dog-tutor-repo#readme",
+  "dependencies": {
+    "openai": "^3.3.0"
+  }
+}
