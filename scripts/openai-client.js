@@ -9,8 +9,6 @@ fetch('api/openai', {
 })
 .then(response => response.json())
 .then(data => console.log(data.text))
-catch (error) {
-  console.error('OpenAI API call failed:', error);
-  res.status(500).json({ error: error.toString() });
-}
-
+.catch((error) => {
+    console.error('Error:', error);
+});

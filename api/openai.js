@@ -13,8 +13,7 @@ module.exports = async (req, res) => {
 
     res.status(200).json({ text: result.data.choices[0].text });
   } catch (error) {
-    console.error(error); // This will log the error details.
+    console.error('OpenAI API call failed:', error);
     res.status(500).json({ error: error.toString() });
   }
 };
-
