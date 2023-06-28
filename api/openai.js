@@ -13,6 +13,7 @@ app.post('/api/openai', async (req, res) => {
     try {
         console.log('Request body:', req.body);
         const { prompt } = req.body;
+        console.log('Prompt:', prompt);
 
         const response = await openai.createCompletion({
             model: 'text-davinci-003',
