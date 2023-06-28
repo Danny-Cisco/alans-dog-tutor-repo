@@ -36,11 +36,15 @@ export default async (req, res) => {
         max_tokens: 7,
         temperature: 0,
       });
-  
+      console.log(response);
       res.status(200).json({ text: response.choices[0].text });
     } catch (error) {
       console.error('Error:', error);  // Log the error
       res.status(500).json({ error: error.toString() });
     }
 };
+
+
+
+
 
