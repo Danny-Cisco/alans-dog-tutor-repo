@@ -10,28 +10,42 @@ body {
 
 canvas {
     cursor: crosshair;
+    width: 95vw;
+    max-width: 1000px;
 }
 
 .content a {
     background: white;
     padding: 1em;
-    text-decoration: none;
+    text-decoration: none; /*removes underline which is default style for a link*/
     font-family: 'Nunito', sans-serif;
     color: black;
     font-weight: bold;
-    border-radius: .3em;
+    border-radius: .3em; /* "em" is a percentage of font size, measured in pixels */
     width: 100%;
     display: inline-block;
     transition: background-color .3s;
     text-align: center;
-    justify-self: center;
     font-size: 25px;
 }
+.content a, #prompt-input {
+    box-sizing: border-box;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 20px;
+    background-color: #31133d;
+    width: 95vw;
+    max-width: 960px;
+}
+
 
 #prompt-input {
     background: white;
     padding: 1em;
-    text-decoration: none;
     font-family: 'Nunito', sans-serif;
     color: black;
     font-weight: regular;
