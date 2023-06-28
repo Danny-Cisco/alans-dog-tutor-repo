@@ -27,19 +27,21 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 module.exports = async (req, res) => {
-  try {
-    const { prompt } = req.body; // Extract prompt from the request body
-
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: prompt,
-      max_tokens: 7,
-      temperature: 0,
-    });
-
-    res.status(200).json({ text: response.choices[0].text });
-  } catch (error) {
-    res.status(500).json({ error: error.toString() });
-  }
-};
+    try {
+      const { prompt } = req.body;
+  
+      const response = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: prompt,
+        max_tokens: 7,
+        temperature: 0,
+      });
+  
+      res.status(200).json({ text: response.choices[0].text });
+    } catch (error) {
+      console.error('Error:', error);  // Log the error
+      res.status(500).json({ error: error.toString() });
+    }
+  };
+  
 
