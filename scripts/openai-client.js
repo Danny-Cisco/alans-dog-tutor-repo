@@ -1,6 +1,6 @@
 let myPrompt = "Write a short story about a dog on an adventure.";
 
-fetch('api/openai', {
+fetch('/api/openai', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
