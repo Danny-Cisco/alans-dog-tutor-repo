@@ -14,6 +14,13 @@ const r = new rive.Rive({
     
 });
 
+window.onload = function() {
+    document.getElementById('prompt-input-box').focus();
+};
+
+
+
+
 document.getElementById('myForm').addEventListener('submit', function(event) {
     event.preventDefault();
     console.log('Form submitted!');
