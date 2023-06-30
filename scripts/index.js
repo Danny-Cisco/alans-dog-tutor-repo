@@ -1,8 +1,6 @@
-const btn = document.querySelector('a')
-const stateName = document.querySelector('p')
 
 
-let butn = document.querySelector("input[type='submit']");
+let btn = document.querySelector("input[type='submit']");
 
 const r = new rive.Rive({
     src: 'rive/dog_head.riv',
@@ -13,8 +11,7 @@ const r = new rive.Rive({
     onLoad: (_) => {
         const inputs = r.stateMachineInputs('State Machine');
         const woofTrigger = inputs.find(i => i.name === 'Woof');
-        butn.onclick = (e) => {
-            e.preventDefault();
+        btn.onclick = (e) => {
             woofTrigger.fire();
         };
     },
