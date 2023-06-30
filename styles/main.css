@@ -13,7 +13,7 @@ canvas {
 }
 
 .content input[type="submit"] {
-    background: white;
+    background: rgb(251, 224, 174);
     padding: 1em;
     font-family: 'Nunito', sans-serif;
     color: black;
@@ -27,6 +27,10 @@ canvas {
     border: none;
     cursor: pointer;
     max-width: 600px;
+}
+
+.content input[type="submit"]:hover {
+    background: rgb(255, 165, 0);
 }
 
 .content input[type="submit"],
