@@ -1,6 +1,8 @@
 const btn = document.querySelector('a')
 const stateName = document.querySelector('p')
 
+let woofTrigger; 
+
 /*
 const r = new rive.Rive({
     src: 'rive/dog_head.riv',
@@ -26,7 +28,7 @@ const r = new rive.Rive({
         // Get the inputs via the name of the state machine
         const inputs = r.stateMachineInputs('State Machine');
         // Find the input you want to set a value for, or trigger
-        const woofTrigger = inputs.find(i => i.name === 'woof');
+        woofTrigger = inputs.find(i => i.name === 'woof');
 
     },
 });
