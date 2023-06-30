@@ -70,7 +70,8 @@ canvas {
 .question {
     background-color: rgb(238, 227, 246);
     padding: 10px;
-    margin-right: 2em;
+    /*margin-right: 2em;*/
+    width:auto;
     border-radius: 5px;
 }
 

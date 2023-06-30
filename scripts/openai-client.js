@@ -11,6 +11,18 @@ function formatQuestion(prompt) {
   return prompt;
 }
 
+// Add event listener for the Enter key in the textarea
+document.getElementById('prompt-input-box').addEventListener('keydown', function(e) {
+  // Check if the Enter key was pressed and the Shift key wasn't
+  if (e.key === 'Enter' && !e.shiftKey) {
+      // If so, trigger the 'submit' event listener
+      e.preventDefault();
+      let submitEvent = new Event('submit');
+      document.getElementById('myForm').dispatchEvent(submitEvent);
+  }
+});
+
+
 document.getElementById('myForm').addEventListener('submit', function(e) {
   // Prevents the form from submitting normally
   e.preventDefault();
@@ -60,3 +72,8 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
       console.error('Error:', error);
   });
 });
+
+
+
+
+
