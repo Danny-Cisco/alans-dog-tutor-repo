@@ -38,6 +38,11 @@ canvas {
     box-sizing: border-box;
 }
 
+#prompt-input-box:focus {
+    outline: 0.3em solid orange;
+}
+
+
 #response-box {
     box-sizing: border-box;
     background: white;
