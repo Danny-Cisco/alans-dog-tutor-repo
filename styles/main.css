@@ -61,7 +61,7 @@ canvas {
     max-width: 960px;
 }
 
-#prompt-input {
+#prompt-input-box {
     background: white;
     padding: 1em;
     font-family: 'Nunito', sans-serif;
