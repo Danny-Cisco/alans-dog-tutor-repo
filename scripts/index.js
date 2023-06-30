@@ -1,5 +1,8 @@
+const btn = document.querySelector('a')
+const stateName = document.querySelector('p')
 
-let btn = document.querySelector("input[type='submit']");
+
+let butn = document.querySelector("input[type='submit']");
 
 const r = new rive.Rive({
     src: 'rive/dog_head.riv',
@@ -9,8 +12,8 @@ const r = new rive.Rive({
     fit: rive.Fit.cover,
     onLoad: (_) => {
         const inputs = r.stateMachineInputs('State Machine');
-        const woofTrigger = inputs.find(i => i.name === 'woof');
-        btn.onclick = (e) => {
+        const woofTrigger = inputs.find(i => i.name === 'Woof');
+        butn.onclick = (e) => {
             e.preventDefault();
             woofTrigger.fire();
         };
@@ -29,6 +32,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     console.log('Form submitted!');
     woof.currentTime = 0;
     woof.play();
+
 });
 
 
