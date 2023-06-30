@@ -45,7 +45,7 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
   // Create a new div for the question, and add it to the 'response-box'
   let questionDiv = document.createElement('div');
   questionDiv.classList.add('question');
-  questionDiv.textContent = 'Q: ' + myPrompt;
+  questionDiv.textContent = 'Q:  ' + myPrompt;
   responseBox.appendChild(questionDiv);
 
   // Use fetch to send the POST request as before
@@ -62,7 +62,7 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
       let answerDiv = document.createElement('div');
       answerDiv.classList.add('answer');
       //answerDiv.textContent = 'A: ' + data.text;
-      answerDiv.textContent = 'A: ' + data.text;
+      answerDiv.textContent = data.text;
       responseBox.appendChild(answerDiv);
 
       // Focus back to the input box
