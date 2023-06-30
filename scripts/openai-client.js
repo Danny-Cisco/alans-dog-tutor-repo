@@ -61,8 +61,8 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
       // Create a new div for the answer, and add it to the 'response-box'
       let answerDiv = document.createElement('div');
       answerDiv.classList.add('answer');
-      //answerDiv.textContent = 'A: ' + data.text;
-      answerDiv.textContent = data.text;
+      answerDiv.textContent = 'A: ' + data.text;
+      //answerDiv.textContent = data.text;
       responseBox.appendChild(answerDiv);
 
       // Focus back to the input box
