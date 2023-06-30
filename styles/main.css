@@ -12,7 +12,7 @@ canvas {
     max-width: 1000px;
 }
 
-.content input[type="submit"] {
+.content input[type="submit-button"] {
     background: white;
     padding: 1em;
     font-family: 'Nunito', sans-serif;
@@ -29,12 +29,12 @@ canvas {
     max-width: 600px;
 }
 
-.content input[type="submit"],
-#prompt-input {
+.content input[type="submit-button"],
+#prompt-input-box {
     box-sizing: border-box;
 }
 
-#response {
+#response-box {
     box-sizing: border-box;
     background: white;
     padding: 1em;
