@@ -42,6 +42,9 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
   .then(data => {
     // Update the text inside the 'response-box' element with the API response
     responseBox.innerHTML += 'A: ' + data.text;
+
+    // Focus back to the input box
+    document.getElementById('prompt-input-box').focus();
   })
   .catch((error) => {
     console.error('Error:', error);
