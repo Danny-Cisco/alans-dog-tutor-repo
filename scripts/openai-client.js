@@ -1,9 +1,25 @@
+// Helper function to format the prompt
+function formatQuestion(prompt) {
+  // Capitalize the first letter
+  prompt = prompt.charAt(0).toUpperCase() + prompt.slice(1);
+
+  // Add a question mark at the end if it's not already there
+  if (prompt.charAt(prompt.length - 1) !== '?') {
+    prompt += '?';
+  }
+
+  return prompt;
+}
+
 document.getElementById('myForm').addEventListener('submit', function(e) {
   // Prevents the form from submitting normally
   e.preventDefault();
 
   // Get the prompt from the input box
   let myPrompt = document.getElementById('prompt-input-box').value;
+
+  // Format the question
+  myPrompt = formatQuestion(myPrompt);
 
   // Clear the prompt input box
   document.getElementById('prompt-input-box').value = '';
@@ -31,4 +47,3 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
     console.error('Error:', error);
   });
 });
-
