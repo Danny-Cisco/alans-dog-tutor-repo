@@ -27,8 +27,22 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
   // Prevents the form from submitting normally
   e.preventDefault();
 
-  // Get the prompt from the input box
-  let myPrompt = document.getElementById('prompt-input-box').value;
+  // Get the prompt from the input box and trim it
+  let inputBox = document.getElementById('prompt-input-box');
+  let myPrompt = inputBox.value.trim();
+
+  // Save the trimmed prompt back to the input box
+  inputBox.value = myPrompt;
+
+  // Check if the prompt is empty
+  if (!myPrompt) {
+      // If it is, focus back to the "prompt-input-box", 
+      // change the placeholder text and stop the function
+      inputBox.placeholder = "... ... ... Don't forget to type a question!";
+      inputBox.focus();
+      return;
+  }
+
 
   // Format the question
   myPrompt = formatQuestion(myPrompt);
