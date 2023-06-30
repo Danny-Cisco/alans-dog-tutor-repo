@@ -46,7 +46,7 @@ canvas {
 #response-box {
     box-sizing: border-box;
     background: white;
-    padding: 1em;
+    padding: 0.25em;
     font-family: 'Nunito', sans-serif;
     color: black;
     font-weight: regular;
@@ -58,6 +58,22 @@ canvas {
     font-size: 20px;
     max-width: 600px;
 }
+
+
+.answer {
+    /*background-color: rgb(250, 211, 143);*/
+    padding: 10px;
+    /*margin-left: 2em;*/
+    border-radius: 5px;
+}
+
+.question {
+    background-color: rgb(238, 227, 246);
+    padding: 10px;
+    margin-right: 2em;
+    border-radius: 5px;
+}
+
 
 .content {
     display: flex;

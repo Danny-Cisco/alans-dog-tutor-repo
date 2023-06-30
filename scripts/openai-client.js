@@ -5,7 +5,7 @@ function formatQuestion(prompt) {
 
   // Add a question mark at the end if it's not already there
   if (prompt.charAt(prompt.length - 1) !== '?') {
-    prompt += '?';
+      prompt += '?';
   }
 
   return prompt;
@@ -27,26 +27,36 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
   // Get the 'response-box' element
   let responseBox = document.getElementById('response-box');
 
-  // Place the question in the 'response-box'
-  responseBox.innerHTML = 'Q: ' + myPrompt + '<br><br>';
+  // Clear the previous content of 'response-box'
+  responseBox.innerHTML = '';
+
+  // Create a new div for the question, and add it to the 'response-box'
+  let questionDiv = document.createElement('div');
+  questionDiv.classList.add('question');
+  questionDiv.textContent = 'Q: ' + myPrompt;
+  responseBox.appendChild(questionDiv);
 
   // Use fetch to send the POST request as before
   fetch('/api/openai', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ prompt: myPrompt }),
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ prompt: myPrompt }),
   })
   .then(response => response.json())
   .then(data => {
-    // Update the text inside the 'response-box' element with the API response
-    responseBox.innerHTML += 'A: ' + data.text;
+      // Create a new div for the answer, and add it to the 'response-box'
+      let answerDiv = document.createElement('div');
+      answerDiv.classList.add('answer');
+      //answerDiv.textContent = 'A: ' + data.text;
+      answerDiv.textContent = 'A: ' + data.text;
+      responseBox.appendChild(answerDiv);
 
-    // Focus back to the input box
-    document.getElementById('prompt-input-box').focus();
+      // Focus back to the input box
+      document.getElementById('prompt-input-box').focus();
   })
   .catch((error) => {
-    console.error('Error:', error);
+      console.error('Error:', error);
   });
 });
