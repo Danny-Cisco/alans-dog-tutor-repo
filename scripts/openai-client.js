@@ -43,6 +43,8 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
       return;
   }
 
+  inputBox.placeholder = "... ... ... Type a cool question here!";
+
 
   // Format the question
   myPrompt = formatQuestion(myPrompt);
