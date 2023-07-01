@@ -48,11 +48,8 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
 
   inputBox.placeholder = "... ... ... Type a cool question here!";
 
-  // play sound and animate upon successful prompt enter
-  woof.currentTime = 0;
-  //woofTrigger.fire();
+  // upon successful prompt enter, play "hmmm, let me think about that" mp3 and animation 
   talkingBool.value = true;
-  //woof.play();
   letmethink.play();
 
   // Format the question
@@ -90,8 +87,20 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
       //answerDiv.textContent = data.text;
       responseBox.appendChild(answerDiv);
 
+      // upon successful response return, play "lets see" mp3 and animation 
+      talkingBool.value = true;
+      letssee.play();
+
+      // CALL NARAKEET API HERE ////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<
+      letssee.onended = function() {
+        console.log("The audio has finished playing");
+       
+        greatquestion.play();
+    };
+
       // Focus back to the input box
       document.getElementById('prompt-input-box').focus();
+
   })
   .catch((error) => {
       console.error('Error:', error);
