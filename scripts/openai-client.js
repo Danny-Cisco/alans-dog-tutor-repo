@@ -40,11 +40,20 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
       // change the placeholder text and stop the function
       inputBox.placeholder = "... ... ... Don't forget to type a question!";
       inputBox.focus();
+      woof.currentTime = 0;
+      woofTrigger.fire();
+      woof.play();
       return;
   }
 
   inputBox.placeholder = "... ... ... Type a cool question here!";
 
+  // play sound and animate upon successful prompt enter
+  woof.currentTime = 0;
+  //woofTrigger.fire();
+  talkingBool.value = true;
+  //woof.play();
+  letmethink.play();
 
   // Format the question
   myPrompt = formatQuestion(myPrompt);
