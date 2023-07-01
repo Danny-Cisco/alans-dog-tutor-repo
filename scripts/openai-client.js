@@ -88,8 +88,12 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
       responseBox.appendChild(answerDiv);
 
       // upon successful response return, play "lets see" mp3 and animation 
-      talkingBool.value = true;
-      letssee.play();
+
+      if (letmethink.paused) {  // if previous audio is still playing, skip this audio, as it is just to fill time anyway
+          talkingBool.value = true;
+          letssee.play();
+      }
+
 
       // CALL NARAKEET API HERE ////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<
       letssee.onended = function() {
