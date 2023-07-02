@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<!-- testing lateset changes branch -->
 <!-- Defines character encoding for the webpage -->
 <head>
     <meta charset="UTF-8" />
@@ -28,12 +29,15 @@
         <canvas id="canvas" width="1000" height="1000"></canvas>
         <div class="content">
             <form id="myForm">
-                <textarea id="prompt-input" placeholder="Enter Prompt here..."></textarea>
-                <input type="submit" value="SUBMIT">
-                <p id="response">This is a very long piece of sample text design to simulate. What might come back as a response from an AI language model.</p>
+                <div id="response-box">
+                    <div class="answer">HELLO, I'm your AI PAL<br><br>Ask me a cool question!!!</div>
+                </div>
+                <input type="submit" value="ASK ME">
+                <input type="text" style="display:none;"><!-- hidden input field to let enter key submit form correctly-->
+                <textarea id="prompt-input-box" placeholder="... ... ... Type a cool question here!"></textarea>
             </form>
-            
-        </div> 
+        </div>
+        
     </div>
 
 
@@ -44,7 +48,8 @@
 
   <script src="scripts/index.js"></script> 
   <script src="scripts/click-woof.js"></script> 
+  <script src="scripts/baked-speech.js"></script> 
   <script src="scripts/touch-mouse.js"></script>
-  <script src="scripts/openai.js"></script>
+  <script src="scripts/openai-client.js"></script>
 
  </body>
