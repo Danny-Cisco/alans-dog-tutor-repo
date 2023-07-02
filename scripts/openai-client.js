@@ -70,7 +70,7 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ data.text }),
+      body: JSON.stringify({ text: data.text }),
     })
     .then(async (response) => {
       if (response.ok) {

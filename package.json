@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Danny-Cisco/alans-dog-tutor-repo#readme",
   "dependencies": {
+    "axios": "^1.4.0",
     "express": "^4.18.2",
     "openai": "^3.3.0"
   }
