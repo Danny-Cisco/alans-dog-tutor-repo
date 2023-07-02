@@ -79,7 +79,7 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
           const audioPlayer = document.getElementById('audioPlayer');
           audioPlayer.src = audioURL;
           audioPlayer.play();
-          
+          talkingBool.value = true;
           audioPlayer.onended = function() {
               console.log("The Narakeet audio has finished playing");
               greatquestion.play();
