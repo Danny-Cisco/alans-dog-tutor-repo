@@ -1,29 +1,14 @@
 <!DOCTYPE html>
 <html>
-<!-- testing lateset changes branch -->
-<!-- Defines character encoding for the webpage -->
 <head>
     <meta charset="UTF-8" />
-
-    <!-- Makes the webpage responsive across different devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Preconnects to domains to speed up the page load time -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Imports Roboto font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-    <!-- Links to the main CSS stylesheet -->
     <link rel="stylesheet" href="styles/main.css">
-
-    <!-- Includes Rive JavaScript library for interactive design elements -->
     <script src="https://unpkg.com/@rive-app/canvas@1.0.102"></script>
 </head>
-
-
-    
 <body>
     <div class="v-container">
         <canvas id="canvas" width="1000" height="1000"></canvas>
@@ -37,19 +22,12 @@
                 <textarea id="prompt-input-box" placeholder="... ... ... Type a cool question here!"></textarea>
             </form>
         </div>
-        
     </div>
-
-
-
-
-    
-
-
-  <script src="scripts/index.js"></script> 
-  <script src="scripts/click-woof.js"></script> 
-  <script src="scripts/baked-speech.js"></script> 
-  <script src="scripts/touch-mouse.js"></script>
-  <script src="scripts/openai-client.js"></script>
-
+    <audio id="audioPlayer"></audio>
+    <script src="scripts/index.js"></script> 
+    <script src="scripts/click-woof.js"></script> 
+    <script src="scripts/baked-speech.js"></script> 
+    <script src="scripts/touch-mouse.js"></script>
+    <script src="scripts/openai-client.js"></script>
  </body>
+</html>
