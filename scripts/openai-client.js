@@ -34,7 +34,7 @@ function formatQuestion(prompt) {
   
     inputBox.placeholder = "... ... ... Type a cool question here!";
     talkingBool.value = true;
-    letmethink.play();
+    //letmethink.play();
   
     myPrompt = formatQuestion(myPrompt);
     document.getElementById('prompt-input-box').value = '';
@@ -62,7 +62,7 @@ function formatQuestion(prompt) {
   
       if (letmethink.paused) {
         talkingBool.value = true;
-        letssee.play();
+        //letssee.play();
       }
   
       fetch('/api/narakeet', {
@@ -82,7 +82,7 @@ function formatQuestion(prompt) {
             talkingBool.value = true;
             audioPlayer.onended = function() {
                 console.log("The Narakeet audio has finished playing");
-                greatquestion.play();
+                //greatquestion.play();
             };
         } else {
             console.error('Audio creation failed');
