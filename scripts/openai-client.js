@@ -1,117 +1,99 @@
 // Helper function to format the prompt
 function formatQuestion(prompt) {
-  // Capitalize the first letter
-  prompt = prompt.charAt(0).toUpperCase() + prompt.slice(1);
-
-  // Add a question mark at the end if it's not already there
-  if (prompt.charAt(prompt.length - 1) !== '?') {
+    prompt = prompt.charAt(0).toUpperCase() + prompt.slice(1);
+    if (prompt.charAt(prompt.length - 1) !== '?') {
       prompt += '?';
+    }
+    return prompt;
   }
-
-  return prompt;
-}
-
-// Add event listener for the Enter key in the textarea
-document.getElementById('prompt-input-box').addEventListener('keydown', function(e) {
-  // Check if the Enter key was pressed and the Shift key wasn't
-  if (e.key === 'Enter' && !e.shiftKey) {
-      // If so, trigger the 'submit' event listener
+  
+  // Add event listener for the Enter key in the textarea
+  document.getElementById('prompt-input-box').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       let submitEvent = new Event('submit');
       document.getElementById('myForm').dispatchEvent(submitEvent);
-  }
-});
-
-
-document.getElementById('myForm').addEventListener('submit', function(e) {
-  // Prevents the form from submitting normally
-  e.preventDefault();
-
-  // Get the prompt from the input box and trim it
-  let inputBox = document.getElementById('prompt-input-box');
-  let myPrompt = inputBox.value.trim();
-
-  // Save the trimmed prompt back to the input box
-  inputBox.value = myPrompt;
-
-  // Check if the prompt is empty
-  if (!myPrompt) {
-      // If it is, focus back to the "prompt-input-box", 
-      // Woof, and stop the function
-      
+    }
+  });
+  
+  document.getElementById('myForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+  
+    let inputBox = document.getElementById('prompt-input-box');
+    let myPrompt = inputBox.value.trim();
+    inputBox.value = myPrompt;
+  
+    if (!myPrompt) {
+      inputBox.placeholder = "... ... ... Don't forget to type a question!";
       inputBox.focus();
       woof.currentTime = 0;
       woofTrigger.fire();
       woof.play();
       return;
-  }
-
-  inputBox.placeholder = "... ... ... Type a cool question here!";
-
-  // upon successful prompt enter, play "hmmm, let me think about that" mp3 and animation 
-  talkingBool.value = true;
-  letmethink.play();
-
-  // Format the question
-  myPrompt = formatQuestion(myPrompt);
-
-  // Clear the prompt input box
-  document.getElementById('prompt-input-box').value = '';
-
-  // Get the 'response-box' element
-  let responseBox = document.getElementById('response-box');
-
-  // Clear the previous content of 'response-box'
-  responseBox.innerHTML = '';
-
-  // Create a new div for the question, and add it to the 'response-box'
-  let questionDiv = document.createElement('div');
-  questionDiv.classList.add('question');
-  questionDiv.textContent = 'Q:  ' + myPrompt;
-  responseBox.appendChild(questionDiv);
-
-  // Use fetch to send the POST request as before
-  fetch('/api/openai', {
+    }
+  
+    inputBox.placeholder = "... ... ... Type a cool question here!";
+    talkingBool.value = true;
+    letmethink.play();
+  
+    myPrompt = formatQuestion(myPrompt);
+    document.getElementById('prompt-input-box').value = '';
+    let responseBox = document.getElementById('response-box');
+    responseBox.innerHTML = '';
+  
+    let questionDiv = document.createElement('div');
+    questionDiv.classList.add('question');
+    questionDiv.textContent = 'Q:  ' + myPrompt;
+    responseBox.appendChild(questionDiv);
+  
+    fetch('/api/openai', {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ prompt: myPrompt }),
-  })
-  .then(response => response.json())
-  .then(data => {
-      // Create a new div for the answer, and add it to the 'response-box'
+    })
+    .then(response => response.json())
+    .then(data => {
       let answerDiv = document.createElement('div');
       answerDiv.classList.add('answer');
       answerDiv.textContent = 'A: ' + data.text;
-      //answerDiv.textContent = data.text;
       responseBox.appendChild(answerDiv);
-
-      // upon successful response return, play "lets see" mp3 and animation 
-
-      if (letmethink.paused) {  // if previous audio is still playing, skip this audio, as it is just to fill time anyway
-          talkingBool.value = true;
-          letssee.play();
+  
+      if (letmethink.paused) {
+        talkingBool.value = true;
+        letssee.play();
       }
-
-
-      // CALL NARAKEET API HERE ////////////////////////////////////////////////<<<<<<<<<<<<<<<<<<
-      letssee.onended = function() {
-        console.log("The audio has finished playing");
-       
-        greatquestion.play();
-    };
-
-      // Focus back to the input box
+  
+      fetch('/api/narakeet', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: data.text }),
+      })
+      .then(async (response) => {
+        if (response.ok) {
+            const blob = await response.blob();
+            const audioURL = URL.createObjectURL(blob);
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.src = audioURL;
+            audioPlayer.play();
+            talkingBool.value = true;
+            audioPlayer.onended = function() {
+                console.log("The Narakeet audio has finished playing");
+                greatquestion.play();
+            };
+        } else {
+            console.error('Audio creation failed');
+        }
+    })
+  
+      
+  
       document.getElementById('prompt-input-box').focus();
-
-  })
-  .catch((error) => {
+    })
+    .catch((error) => {
       console.error('Error:', error);
+    });
   });
-});
-
-
-
-
-
