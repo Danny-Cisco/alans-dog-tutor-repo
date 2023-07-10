@@ -9,16 +9,35 @@ const openai = new OpenAIApi(configuration);
 
 app.use(express.json());
 
+let memory = [];
+
 app.post('/api/openai', async (req, res) => {
     try {
         const { prompt } = req.body;
         const systemMessage = { "role": "system", "content": "You are a talking dog, so start every reply with 'Woof, Woof!'"};
         const userMessage = { "role": "user", "content": prompt };
 
+        // Add new user message to the memory
+        memory.push(userMessage);
+
+        // Limit memory to the last 10 messages
+        if (memory.length > 10) {
+            memory = memory.slice(memory.length - 10);
+        }
+
         const chatCompletion = await openai.createChatCompletion({
             model: 'gpt-3.5-turbo',
-            messages: [systemMessage, userMessage],
+            messages: [systemMessage, ...memory],
         });
+
+        // Add assistant message to the memory
+        const assistantMessage = { "role": "assistant", "content": chatCompletion.data.choices[0].message.content };
+        memory.push(assistantMessage);
+
+        // Limit memory to the last 10 messages
+        if (memory.length > 10) {
+            memory = memory.slice(memory.length - 10);
+        }
 
         res.status(200).json({ text: chatCompletion.data.choices[0].message.content });
     } catch (error) {
