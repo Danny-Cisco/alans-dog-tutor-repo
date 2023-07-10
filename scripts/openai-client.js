@@ -37,8 +37,8 @@ document.getElementById('myForm').addEventListener('submit', function(e) {
   // Check if the prompt is empty
   if (!myPrompt) {
       // If it is, focus back to the "prompt-input-box", 
-      // change the placeholder text and stop the function
-      inputBox.placeholder = "... ... ... Don't forget to type a question!";
+      // Woof, and stop the function
+      
       inputBox.focus();
       woof.currentTime = 0;
       woofTrigger.fire();

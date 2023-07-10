@@ -11,20 +11,16 @@ app.use(express.json());
 
 app.post('/api/openai', async (req, res) => {
     try {
-        
-        const { prompt } = req.body;
-        
+        const { message } = req.body;
+        const systemMessage = { "role": "system", "content": "You are a talking dog, so start every reply with 'Woof, Woof!'"};
+        const userMessage = { "role": "user", "content": message };
 
-        const completion = await openai.createCompletion({
-            model: 'text-davinci-003',
-            prompt: prompt,
-            max_tokens: 100,
-            temperature: 0.7,
+        const chatCompletion = await openai.createChatCompletion({
+            model: 'gpt-3.5-turbo',
+            messages: [systemMessage, userMessage],
         });
 
-            res.status(200).json({ text: completion.data.choices[0].text });
-        
-    
+        res.status(200).json({ text: chatCompletion.data.choices[0].message.content });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ error: error.toString() });
