@@ -11,9 +11,9 @@ app.use(express.json());
 
 app.post('/api/openai', async (req, res) => {
     try {
-        const { message } = req.body;
+        const { prompt } = req.body;
         const systemMessage = { "role": "system", "content": "You are a talking dog, so start every reply with 'Woof, Woof!'"};
-        const userMessage = { "role": "user", "content": message };
+        const userMessage = { "role": "user", "content": prompt };
 
         const chatCompletion = await openai.createChatCompletion({
             model: 'gpt-3.5-turbo',
