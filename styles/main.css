@@ -75,6 +75,11 @@ canvas {
     border-radius: 5px;
 }
 
+#audioPlayer {
+    display: none;
+}
+
+
 
 .content {
     display: flex;
