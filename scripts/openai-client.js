@@ -24,7 +24,7 @@ function formatQuestion(prompt) {
     inputBox.value = myPrompt;
   
     if (!myPrompt) {
-      inputBox.placeholder = "... ... ... Don't forget to type a question!";
+      //inputBox.placeholder = "... ... ... Don't forget to type a question!";
       inputBox.focus();
       woof.currentTime = 0;
       woofTrigger.fire();
@@ -33,7 +33,7 @@ function formatQuestion(prompt) {
     }
   
     inputBox.placeholder = "... ... ... Type a cool question here!";
-    talkingBool.value = true;
+    //talkingBool.value = true;
     //letmethink.play();
   
     myPrompt = formatQuestion(myPrompt);
@@ -43,7 +43,7 @@ function formatQuestion(prompt) {
   
     let questionDiv = document.createElement('div');
     questionDiv.classList.add('question');
-    questionDiv.textContent = 'Q:  ' + myPrompt;
+    questionDiv.textContent = 'DOG:  ' + myPrompt;
     responseBox.appendChild(questionDiv);
   
     fetch('/api/openai', {
@@ -57,11 +57,11 @@ function formatQuestion(prompt) {
     .then(data => {
       let answerDiv = document.createElement('div');
       answerDiv.classList.add('answer');
-      answerDiv.textContent = 'A: ' + data.text;
+      answerDiv.textContent = 'YOU: ' + data.text;
       responseBox.appendChild(answerDiv);
   
       if (letmethink.paused) {
-        talkingBool.value = true;
+        //talkingBool.value = true;
         //letssee.play();
       }
   
@@ -82,6 +82,7 @@ function formatQuestion(prompt) {
             talkingBool.value = true;
             audioPlayer.onended = function() {
                 console.log("The Narakeet audio has finished playing");
+                talkingBool.value = false;
                 //greatquestion.play();
             };
         } else {
