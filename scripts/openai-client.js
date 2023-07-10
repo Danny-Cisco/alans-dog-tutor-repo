@@ -43,7 +43,7 @@ function formatQuestion(prompt) {
   
     let questionDiv = document.createElement('div');
     questionDiv.classList.add('question');
-    questionDiv.textContent = 'DOG:  ' + myPrompt;
+    questionDiv.textContent = 'YOU:  ' + myPrompt;
     responseBox.appendChild(questionDiv);
   
     fetch('/api/openai', {
@@ -57,7 +57,7 @@ function formatQuestion(prompt) {
     .then(data => {
       let answerDiv = document.createElement('div');
       answerDiv.classList.add('answer');
-      answerDiv.textContent = 'YOU: ' + data.text;
+      answerDiv.textContent = 'DOG: ' + data.text;
       responseBox.appendChild(answerDiv);
   
       if (letmethink.paused) {
