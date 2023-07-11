@@ -30,7 +30,7 @@ canvas {
 }
 
 .content button[id="start"] {
-    background: rgb(251, 224, 174);
+    background: rgb(237, 65, 49);
     padding: 1em;
     font-family: 'Nunito', sans-serif;
     color: black;
@@ -48,6 +48,9 @@ canvas {
 
 .content input[type="submit"]:hover {
     background: rgb(255, 165, 0);
+}
+.content button[id="start"] :hover {
+    background: rgb(197, 7, 16);
 }
 
 .content input[type="submit"],
