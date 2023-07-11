@@ -1,4 +1,4 @@
-const output = document.getElementById('output');
+const output = document.getElementById('prompt-input-box');
 const startButton = document.getElementById('start');
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
