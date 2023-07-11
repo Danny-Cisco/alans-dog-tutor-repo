@@ -28,7 +28,7 @@ if (recognition) {
             
             // Dispatch the event.
             form.dispatchEvent(event);
-        };
+        
         
     };
 
