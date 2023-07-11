@@ -33,24 +33,16 @@ if (recognition) {
         alert('Error occurred in recognition: ' + event.error);
     }
 
-    // Mouse events for desktop
-    startButton.addEventListener('mousedown', () => {
+    startButton.addEventListener('pointerdown', (event) => {
+        event.preventDefault();
         recognition.start();
     });
-
-    startButton.addEventListener('mouseup', () => {
+    
+    startButton.addEventListener('pointerup', (event) => {
+        event.preventDefault();
         recognition.stop();
     });
-
-    // Touch events for mobile
-    startButton.addEventListener('touchstart', () => {
-       // event.preventDefault();
-        recognition.start();
-    });
-
-    startButton.addEventListener('touchend', () => {
-        recognition.stop();
-    });
+    
 
     // Key events for "push-to-talk" with spacebar
 document.addEventListener('keydown', (event) => {
