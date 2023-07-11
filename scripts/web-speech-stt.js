@@ -7,7 +7,6 @@ const recognition = SpeechRecognition ? new SpeechRecognition() : null;
 if (recognition) {
     recognition.onstart = () => {
         startButton.textContent = 'Listening...';
-        startButton.disabled = true;
     };
 
     recognition.onresult = (event) => {
@@ -18,35 +17,39 @@ if (recognition) {
 
         output.value = transcript;
         
-        // this is where i need to trigger the form submit event!!!
-
-            /*            
-            // Triggering the form submit event
-            const form = document.getElementById('myForm');
-            
-            // Create new event
-            var event = new Event('submit');
-            
-            // Dispatch the event.
-            form.dispatchEvent(event);
-        */
-        
+        // Triggering the form submit event
+        const form = document.getElementById('myForm');
+        var event = new Event('submit');  // Create new event
+        form.dispatchEvent(event);  // Dispatch the event.
     };
 
     recognition.onend = () => {
-        startButton.textContent = 'Press to Talk';
-        startButton.disabled = false;
-        recognition.stop();
+        startButton.textContent = 'Press and Hold to Talk';
     };
 
     recognition.onerror = (event) => {
         alert('Error occurred in recognition: ' + event.error);
     }
 
-    startButton.addEventListener('click', () => {
+    // Mouse events for desktop
+    startButton.addEventListener('mousedown', () => {
         recognition.start();
     });
+
+    startButton.addEventListener('mouseup', () => {
+        recognition.stop();
+    });
+
+    // Touch events for mobile
+    startButton.addEventListener('touchstart', (event) => {
+        event.preventDefault();
+        recognition.start();
+    });
+
+    startButton.addEventListener('touchend', () => {
+        recognition.stop();
+    });
+    
 } else {
     startButton.textContent = 'Speech recognition not available';
-    startButton.disabled = true;
 }
