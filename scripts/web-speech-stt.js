@@ -17,7 +17,25 @@ if (recognition) {
             .join('');
 
         output.value = transcript;
-        // this is when i need to send to openai
+        // this is where i need to trigger the form submit event!!!
+        recognition.onresult = (event) => {
+            let transcript = Array.from(event.results)
+                .map(result => result[0])
+                .map(result => result.transcript)
+                .join('');
+        
+            output.value = transcript;
+            
+            // Triggering the form submit event
+            const form = document.getElementById('myForm');
+            
+            // Create new event
+            var event = new Event('submit');
+            
+            // Dispatch the event.
+            form.dispatchEvent(event);
+        };
+        
     };
 
     recognition.onend = () => {
