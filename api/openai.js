@@ -14,7 +14,7 @@ let memory = [];
 app.post('/api/openai', async (req, res) => {
     try {
         const { prompt } = req.body;
-        const systemMessage = { "role": "system", "content": "You are a talking dog, so start every reply with 'Woof, Woof!'"};
+        const systemMessage = { "role": "system", "content": "You are a talking dog. Your purpose is to engage and delight a 5 year old with short, simple phrases that are playful, and helpful."};
         const userMessage = { "role": "user", "content": prompt };
 
         // Add new user message to the memory
