@@ -1,3 +1,17 @@
+let welcomeAudio = new Audio('/sounds/hi-im-your-ai-pal.mp3');
+
+// At the start of your application
+talkingBool.value = true;
+welcomeAudio.play();
+
+welcomeAudio.onended = function() {
+    console.log("The welcome audio has finished playing");
+    talkingBool.value = false;
+};
+
+// Your existing code...
+
+
 // Helper function to format the prompt
 function formatQuestion(prompt) {
     prompt = prompt.charAt(0).toUpperCase() + prompt.slice(1);
