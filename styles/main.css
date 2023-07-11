@@ -29,6 +29,23 @@ canvas {
     max-width: 600px;
 }
 
+.content button[id="start"] {
+    background: rgb(251, 224, 174);
+    padding: 1em;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    font-weight: bold;
+    border-radius: .3em;
+    width: 100%;
+   
+    transition: background-color .3s;
+    text-align: center;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    max-width: 600px;
+}
+
 .content input[type="submit"]:hover {
     background: rgb(255, 165, 0);
 }

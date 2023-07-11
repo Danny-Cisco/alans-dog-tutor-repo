@@ -17,11 +17,11 @@ if (recognition) {
             .join('');
 
         output.value = transcript;
-        window.readOutLoud(transcript);  // This will automatically read out the message
+        // this is when i need to send to openai
     };
 
     recognition.onend = () => {
-        startButton.textContent = 'Start';
+        startButton.textContent = 'Press to Talk';
         startButton.disabled = false;
     };
 
