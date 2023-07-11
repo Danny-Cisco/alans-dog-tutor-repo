@@ -118,14 +118,17 @@ canvas {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Black w/ opacity */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
 }
 
 #modal-content {
     background-color: #31133d;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 35% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 300px;
     color: white;
     border-radius: .3em;
     font-family: 'Nunito', sans-serif;
