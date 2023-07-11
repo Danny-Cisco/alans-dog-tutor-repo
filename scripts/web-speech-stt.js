@@ -7,6 +7,7 @@ const recognition = SpeechRecognition ? new SpeechRecognition() : null;
 if (recognition) {
     recognition.onstart = () => {
         startButton.textContent = 'Listening...';
+        startButton.style.backgroundColor = 'orange';  // Change color to orange when listening
     };
 
     recognition.onresult = (event) => {
@@ -24,7 +25,8 @@ if (recognition) {
     };
 
     recognition.onend = () => {
-        startButton.textContent = 'Press and Hold to Talk';
+        startButton.textContent = 'Press to Talk';
+        startButton.style.backgroundColor = '';  // Reset color when not listening
     };
 
     recognition.onerror = (event) => {
@@ -41,8 +43,8 @@ if (recognition) {
     });
 
     // Touch events for mobile
-    startButton.addEventListener('touchstart', (event) => {
-        event.preventDefault();
+    startButton.addEventListener('touchstart', () => {
+       // event.preventDefault();
         recognition.start();
     });
 
