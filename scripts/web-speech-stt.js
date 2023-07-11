@@ -51,6 +51,19 @@ if (recognition) {
     startButton.addEventListener('touchend', () => {
         recognition.stop();
     });
+
+    // Key events for "push-to-talk" with spacebar
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Space') { // 32 is the keyCode for Spacebar
+        recognition.start();
+    }
+});
+
+document.addEventListener('keyup', (event) => {
+    if (event.key === 'Space') { // 32 is the keyCode for Spacebar
+        recognition.stop();
+    }
+});
     
 } else {
     startButton.textContent = 'Speech recognition not available';

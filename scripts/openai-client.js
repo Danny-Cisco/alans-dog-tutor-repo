@@ -28,7 +28,7 @@ function formatQuestion(prompt) {
   
     if (!myPrompt) {
       //inputBox.placeholder = "... ... ... Don't forget to type a question!";
-      inputBox.focus();
+      //inputBox.focus();
       woof.currentTime = 0;
       woofTrigger.fire();
       woof.play();
