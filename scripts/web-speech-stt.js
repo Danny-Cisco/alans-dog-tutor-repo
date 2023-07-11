@@ -17,6 +17,7 @@ if (recognition) {
             .join('');
 
         output.value = transcript;
+        recognition.stop();
         // this is where i need to trigger the form submit event!!!
 
             /*            
