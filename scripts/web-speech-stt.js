@@ -19,7 +19,7 @@ if (recognition) {
         output.value = transcript;
         // this is where i need to trigger the form submit event!!!
 
-            
+            /*            
             // Triggering the form submit event
             const form = document.getElementById('myForm');
             
@@ -28,7 +28,7 @@ if (recognition) {
             
             // Dispatch the event.
             form.dispatchEvent(event);
-        
+        */
         
     };
 
