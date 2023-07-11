@@ -17,7 +17,7 @@ if (recognition) {
             .join('');
 
         output.value = transcript;
-        recognition.stop();
+        
         // this is where i need to trigger the form submit event!!!
 
             /*            
@@ -36,6 +36,7 @@ if (recognition) {
     recognition.onend = () => {
         startButton.textContent = 'Press to Talk';
         startButton.disabled = false;
+        recognition.stop();
     };
 
     recognition.onerror = (event) => {
