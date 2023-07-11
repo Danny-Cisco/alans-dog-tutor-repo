@@ -106,3 +106,50 @@ canvas {
     font-size: 20px;
     max-width: 600px;
 }
+
+#modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#modal-content {
+    background-color: #31133d;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    color: white;
+    border-radius: .3em;
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+}
+
+#modal-button {
+    background: rgb(251, 224, 174);
+    color: black;
+    border: none;
+    border-radius: .3em;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 2px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    transition: background-color .3s;
+}
+
+#modal-button:hover {
+    background: rgb(255, 165, 0);
+}
+
